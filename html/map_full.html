@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+	<!-- <meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> -->
+<!-- 	// <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> -->
+<head>
+<!-- <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script> -->
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
+ <script type="text/javascript" src="js/markerclusterer.js"></script>
+
+ 	<script>
+    function loadScript(src,callback){
+    	alert('loadScript');
+	    alert(' window.google=' + window.google );
+	  // console.log('loadScript...');
+	    var script = document.createElement("script");
+	    script.type = "text/javascript";
+	    if(callback)script.onload=callback;
+	        if( window.google && google.maps )  {
+	        	initialize() ;
+	            return;
+        }
+    
+    // console.log('head');
+    // console.log(document.getElementsByTagName("head")[0]);
+    document.getElementsByTagName("head")[0].appendChild(script);
+    // document.body.appendChild(script);
+    script.src = src;
+  }
+  
+  
+  loadScript('http://maps.googleapis.com/maps/api/js?v=3&sensor=false&callback=initialize',
+              function(){log('google-loader has been loaded, but not the maps-API ');});
+
+
+ 
+
+
+function log(str){
+  // console.log(str);
+}
+
+
+	</script>
+
+	<!-- ======================================== -->
+
+ 	<script type="text/javascript">
+
+	var locations = [
+	{'id': 1, 'name': 'Mug', 'description': 'put te','lat':22.0757222222222 ,'lng':121.537055555556},
+	{'id': 2, 'name': 'Mug', 'description': 'put te','lat': 22.0758055555556 ,'lng':121.537027777778},
+	{'id': 3, 'name': 'Mug', 'description': 'put te','lat': 22.07825 ,'lng':121.56222222222},
+	{'id': 4, 'name': 'Mug', 'description': 'put te','lat': 22.07405555555 ,'lng':121.5385777777},
+	{'id': 5, 'name': 'Mug', 'description': 'put te','lat': 22.07405555555 ,'lng':121.5384222222},
+	{'id': 6, 'name': 'Mug', 'description': 'put te','lat': 22.07580555555 ,'lng':121.5370333333},
+	{'id': 7, 'name': 'Mug', 'description': 'put te','lat': 22.07580555555 ,'lng':121.5370333333},
+	{'id': 8, 'name': 'Mug', 'description': 'put te','lat': 22.07577777777 ,'lng':121.5370333333},
+	{'id': 9, 'name': 'Mug', 'description': 'put te','lat': 22.07583333333 ,'lng':121.5370777777},
+	{'id': 10, 'name': 'Mug', 'description': 'put te','lat': 22.07258333333 ,'lng':121.5430555555},
+	{'id': 11, 'name': 'Mug', 'description': 'put te','lat': 22.0742 ,'lng':121.5408333333},
+	{'id': 12, 'name': 'Mug', 'description': 'put te','lat': 22.0742 ,'lng':121.5405555555},
+	{'id': 13, 'name': 'Mug', 'description': 'put te','lat': 22.07422222222 ,'lng':121.5408333333},
+	{'id': 14, 'name': 'Mug', 'description': 'put te','lat': 22.07422222222 ,'lng':121.5401111111},
+	{'id': 15, 'name': 'Mug', 'description': 'put te','lat': 22.07496666666 ,'lng':121.5402222222},
+	{'id': 16, 'name': 'Mug', 'description': 'put te','lat': 22.07757777777 ,'lng':121.5393888888},
+	{'id': 17, 'name': 'Mug', 'description': 'put te','lat': 22.07466666666 ,'lng':121.5401111111},
+	{'id': 18, 'name': 'Mug', 'description': 'put te','lat': 22.07466666666 ,'lng':121.5396666666},
+	{'id': 19, 'name': 'Mug', 'description': 'put te','lat': 22.07531111111 ,'lng':121.5371666666},
+	{'id': 20, 'name': 'Mug', 'description': 'put te','lat': 22.07572222222 ,'lng':121.5378333333},
+	{'id': 21, 'name': 'Mug', 'description': 'put te','lat': 22.07577777777 ,'lng':121.5375555555},
+	{'id': 22, 'name': 'Mug', 'description': 'put te','lat': 22.07585555555 ,'lng':121.5378333333},
+	{'id': 23, 'name': 'Mug', 'description': 'put te','lat': 22.07585555555 ,'lng':121.5375555555},
+	{'id': 24, 'name': 'Mug', 'description': 'put te','lat': 22.07446666666 ,'lng':121.5360555555},
+	{'id': 25, 'name': 'Mug', 'description': 'put te','lat': 22.07438888888 ,'lng':121.5366111111},
+	{'id': 26, 'name': 'Mug', 'description': 'put te','lat': 22.07446666666 ,'lng':121.5368888888},
+	{'id': 27, 'name': 'Mug', 'description': 'put te','lat': 22.07453333333 ,'lng':121.5367222222},
+	{'id': 28, 'name': 'Mug', 'description': 'put te','lat': 22.07453333333 ,'lng':121.536},
+	{'id': 29, 'name': 'Mug', 'description': 'put te','lat': 22.07596666666 ,'lng':121.5351111111},
+	{'id': 30, 'name': 'Mug', 'description': 'put te','lat': 22.07588888888 ,'lng':121.5353333333},
+	{'id': 31, 'name': 'Mug', 'description': 'put te','lat': 22.07581111111 ,'lng':121.5353333333},
+	{'id': 32, 'name': 'Mug', 'description': 'put te','lat': 22.07572222222 ,'lng':121.5375555555},
+	{'id': 33, 'name': 'Mug', 'description': 'put te','lat': 22.14133333333 ,'lng':121.5399444444},
+	{'id': 34, 'name': 'Mug', 'description': 'put te','lat': 22.07466666666 ,'lng':121.5392222222}
+	];
+
+	var markers = [];
+	var map;
+	var infoWindow ;
+// var msOverImg = 'images/marker4.png';
+var msOverImg ;
+var msOutImg ;
+
+function initialize() {
+	console.log('in initialize...');
+	markers = [];
+	infoWindow  = new google.maps.InfoWindow;
+	msOverImg = new google.maps.MarkerImage(
+	"http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|FFFF00",
+	null, /* size is determined at runtime */
+	null, /* origin is 0,0 */
+	null, /* anchor is bottom center of the scaled image */
+	new google.maps.Size(42, 68)
+	); 
+	 msOutImg = new google.maps.MarkerImage(
+	"http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|FF0000",
+	null, /* size is determined at runtime */
+	null, /* origin is 0,0 */
+	null, /* anchor is bottom center of the scaled image */
+	new google.maps.Size(42, 68)
+	); 
+
+	 // console.log('in initialize...variable ...');
+	var myLatlng = new google.maps.LatLng(21.998274, 121.208024);
+	var myOptions = {
+		zoom: 11,
+		center: myLatlng,
+		mapTypeControl: true,
+		mapTypeId: google.maps.MapTypeId.TERRAIN
+	}
+	map = new google.maps.Map(document.getElementById("content"), myOptions);
+	// map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+	
+	for(id in locations) {
+		initializePoint(locations[id]);
+	}
+	 var markerCluster = new MarkerClusterer(map, markers);
+}	
+
+function initializePoint(pointData) {
+	// console.log('in initializePoint...');
+	var pointLatLng = new google.maps.LatLng(pointData.lat, pointData.lng);
+
+	var marker = new google.maps.Marker({
+		position: pointLatLng, 
+		map: map, 
+		title: pointData.name,
+		icon:msOverImg
+	});
+	
+	var html = "<div class='infowin'><strong>" + pointData.id +" " +pointData.name + "</strong><hr>";
+	html = html + pointData.description;
+	
+  	//binds the infoWindow to the point
+  	bindInfoWindow(marker, map, infoWindow, html);
+
+  	//drawing the marker
+  	marker.setMap(map); 
+
+  	 markers.push(marker); //charlene
+  }
+
+  function bindInfoWindow(marker, map, infoWindow, html) {
+  	// console.log('bindInfoWindow...');
+  	google.maps.event.addListener(marker, 'mouseover', function() {
+  		infoWindow.setContent(html);
+  		infoWindow.open(map, marker);
+  		marker.setIcon(msOutImg);
+  	});
+  	google.maps.event.addListener(marker, 'mouseout', function() {
+  		infoWindow.close();
+  		marker.setIcon(msOverImg);
+  	});
+  }
+
+  </script>
+
+</head>
+
+	<div id="content" style="width:1024px; height:768px"></div>
+
+
+</html>

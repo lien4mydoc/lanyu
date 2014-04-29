@@ -1,0 +1,68 @@
+
+ <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="js/jquery.sudoSlider.min.js"></script>
+<link rel="stylesheet" href="css/sudo.css" />
+
+
+<script type="text/javascript" >
+$(document).ready(function(){	
+	var sudoSlider = $("#slider").sudoSlider({
+		 numeric: true,
+		 speed: 500,
+		continuous: true
+	});
+});
+
+// fix iframe  -- not working 
+// $(document).ready(function(){
+
+//     $('iframe').each(function(){
+//           var url = $(this).attr("src");
+//           var char = "?";
+//           if(url.indexOf("?") != -1){
+//                   var char = "&";
+//            }
+        
+//           $(this).attr("src",url+char+"wmode=transparent");
+//     });
+
+// });
+
+
+
+</script>
+
+<section id="sliderframe"> 
+
+
+	<!-- <div> -->
+		<div id="slider">
+			<ul>		
+				<li >
+					<p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+					<div style="text-align:center;width:360px;margin:0 auto;"><img src="../images/sandwich.png" alt="Make me that sandwich!!!"/></div>
+				</li>		
+				<li >
+					<p>
+					cccccccccccccccccccccccc </br>
+					bbbbbbbbbbbbbbbbbbbbbbbbbb</br>
+					</p>
+
+					<div style="margin:0 auto;text-align:center;">
+						
+						<iframe title="YouTube video player" width="624" height="507" src="http://www.youtube.com/embed/lzQgAR_J1PI?wmode=transparent" frameborder="0" ></iframe>
+
+
+
+<!--charlene disable add iframe instead
+                    
+						<object width="480" height="385"><param name="movie" value="http://www.youtube.com/v/zJOS0sV2a24?fs=1"><param name="allowFullScreen" value="true"><param name="allowscriptaccess" value="always"><embed src="http://www.youtube.com/v/zJOS0sV2a24?fs=1&amp;hl=da_DK" type="application/x-shockwave-flash" allowscriptaccess="always"  width="480" height="385"></embed></object>
+						charlene  -->
+					</div>
+				</li>
+	
+				<li><img src="../images/05.jpg" alt="image description"/></li>		
+			</ul>
+		<!-- </div> -->
+	</div>
+</section>

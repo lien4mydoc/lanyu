@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<section id="content"> 
+
+
+<STYLE TYPE="text/css">
+ol {
+  width: 50%;
+    counter-reset: li; /* Initiate a counter */
+    list-style: none; /* Remove default numbering */
+    *list-style: decimal; /* Keep using default numbering for IE6/7 */
+    font: 12px 'trebuchet MS', 'lucida sans';
+    padding: 0;
+    margin-bottom: 4em;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+     margin-left: auto;
+    margin-right: auto ;
+}
+
+ol ol {
+    margin: 0 0 0 2em; /* Add some left margin for inner lists */
+}
+
+.rectangle-list a{
+    position: relative;
+    display: block;
+    padding: .4em .4em .4em .8em;
+    *padding: .4em;
+    margin: .5em 0 .5em 2.5em;
+
+    background: rgba(183, 112, 103,  0.5);
+    color: rgb(136, 37, 65); 
+    text-decoration: none;
+    transition: all .3s ease-out;   
+}
+
+.rectangle-list a:hover{
+    background: rgba(176,180,176,0.5);
+}   
+
+.rectangle-list a:before{
+    content: counter(li);
+    counter-increment: li;
+    position: absolute; 
+    left: -2.5em;
+    top: 50%;
+    margin-top: -1em;
+    background: rgba(183, 112, 103,  0.7);
+    height: 2em;
+    width: 2em;
+    line-height: 2em;
+    text-align: center;
+    font-weight: bold;
+}
+
+.rectangle-list a:after{
+    position: absolute; 
+    content: '';
+    border: .5em solid transparent;
+    left: -1em;
+    top: 50%;
+    margin-top: -.5em;
+    transition: all .3s ease-out;               
+}
+
+.rectangle-list a:hover:after{
+    left: -.5em;
+    border-left-color: rgba(183, 112, 103,  0.7);            
+}   
+
+/*a { 
+    background: rgba(183, 112, 103,  0.2);
+              -moz-box-shadow:4px 4px 12px -2px rgba(20%,20%,40%,0.5);
+-webkit-box-shadow:4px 4px 12px -2px rgba(20%,20%,40%,0.5);
+box-shadow:4px 4px 12px -2px rgba(20%,20%,40%,0.5);
+}*/
+ /*a:hover,  a.selected
+ { color: rgb(136, 37, 65); background: rgba(176,180,176,0.5); }
+*/
+
+</STYLE>
+
+
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+
+<ol class="rectangle-list">
+ 
+<li><a href='http://www.dmtip.gov.tw' target="_blank">台灣原住民數位博物館</a></li>
+<li><a href='http://www.titv.org.tw' target="_blank">原住民族電視台</a></li>
+<li><a href='http://dlm.ncnu.edu.tw/lanyu/child/home.asp'target="_blank">人之島/蘭嶼數位博物館</a></li>
+<li><a href='http://www.nmp.gov.tw/' target="_blank">國立台灣史前文化博物館</a></li>
+<li><a href='http://www.nmns.edu.tw/' target="_blank">國立自然科學博物館</a></li>
+<li><a href='http://librarywork.taiwanschoolnet.org/cyberfair2007/binjiang/1-info.htm' target="_blank">少年與海</a></li>
+<li><a href='http://www.tacp.gov.tw' target="_blank">原住民文化園區</a></li>
+<li><a href='http://yamiproject.cs.pu.edu.tw/elearn/?&lang=zhtw' target="_blank">蘭嶼達悟語線上學習網</a></li>
+<li><a href='http://lanyu.taitung.gov.tw' target="_blank">蘭嶼資訊服務網</a></li>
+
+<li><a href='http://www.mulita.com.tw/index.htm' target="_blank">蘭嶼海人姆里塔</a></li>
+<li><a href='http://www.pct.org.tw/rnd/tao/index.htm' target="_blank">蘭嶼之美</a></li>
+<li><a href='http://city.udn.com/v1/blog/index.jsp?uid=dancingfree' target="_blank">蘭嶼是我家</a></li>
+<li><a href='http://blog.roodo.com/awu0902' target="_blank">阿女巫筆記</a></li>
+
+    </ol>
+
+</section>

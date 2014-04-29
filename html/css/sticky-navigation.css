@@ -1,0 +1,38 @@
+
+/*============================================================*/
+
+/*.demo_container { width:980px; margin:0 auto; }*/
+#demo_top_wrapper { margin:0 0 20px 0; }
+#demo_top { height:100px; padding:10px 0 0 0; 
+	background:url(../img/lanyuanothrHeadgood2.jpg) no-repeat; 
+	background-size: cover ; 
+
+ }
+#my_logo { font:70px Georgia, serif; } 
+
+#sticky_navigation_wrapper { width:100%; height:50px; )}
+#sticky_navigation {  z-index: 1000; width:100%; height:50px; 
+	background: rgba(183, 112, 103,  0.2);
+			  -moz-box-shadow:4px 4px 12px -2px rgba(20%,20%,40%,0.5);
+-webkit-box-shadow:4px 4px 12px -2px rgba(20%,20%,40%,0.5);
+box-shadow:4px 4px 12px -2px rgba(20%,20%,40%,0.5);
+}
+/*#sticky_navigation {  z-index: 1000; width:100%; height:50px; background: rgba(183, 112, 103,  0.2);-moz-box-shadow: 0 0 5px rgba(183, 112, 103,  0.2); -webkit-box-shadow: 0 0 5px rgba(183, 112, 103,  0.9); box-shadow: 0 0 5px rgba(183, 112, 103,  0.2); }*/
+/*#sticky_navigation {  z-index: 1000; width:100%; height:50px; background: rgba(183, 112, 103,  0.2);-moz-box-shadow: 0 0 5px #999; -webkit-box-shadow: 0 0 5px #999; box-shadow: 0 0 5px #999; }*/
+/*#sticky_navigation {  z-index: 1000; width:100%; height:50px; background:url(navibg.png); -moz-box-shadow: 0 0 5px #999; -webkit-box-shadow: 0 0 5px #999; box-shadow: 0 0 5px #999; }*/
+#sticky_navigation ul { list-style:none; margin:0; padding:5px 30px 0 0; float:right; }
+#sticky_navigation ul li { margin:0; padding:0; display:inline; }
+#sticky_navigation ul li a { display:block; float:left; margin:0 0 0 5px; padding:0 20px; height:40px; line-height:40px; font-size:14px;  font-weight:bold; color: rgb(150, 28, 53); background: rgba(183, 112, 103, 0.86); -moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px; }
+#sticky_navigation ul li a:hover, #sticky_navigation ul li a.selected
+ { color: rgb(136, 37, 65); background: rgba(176,180,176,0.5); }
+
+
+/*.demo_container_vertical { width:49px; height:210px margin:0 auto; 	position:fixed;left:-30px; top:200px;}
+#sticky_navigation_virtical_wrapper { width:56; height:155px; }
+#sticky_navigation_vertical { width:56px; height:155px;  -moz-box-shadow: 0 0 5px #999; -webkit-box-shadow: 0 0 5px #999; box-shadow: 0 0 5px #999; }
+#sticky_navigation_vertical ul { list-style:none; margin:0; padding:5px; }
+#sticky_navigation_vertical ul li { margin:0; padding:0; display:inline; }
+#sticky_navigation_vertical ul li a { display:block; float:left; margin:0 0 0 5px; padding:0 20px; height:40px; line-height:40px; font-size:14px; font-family:Arial, serif; font-weight:bold; color:#ddd; background:#333; -moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px; }
+#sticky_navigation_vertical ul li a:hover, #sticky_navigation_vertical ul li a.selected { color:#fff; background:#111; }
+*/
+

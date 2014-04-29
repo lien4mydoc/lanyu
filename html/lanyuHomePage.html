@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title> lanyu - pinban ship home page</title>
+ 
+<link href="css/demo.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="js/jquery.sudoSlider.min.js"></script>
+<!-- required for  sticky-navigation demo -->
+<link rel="stylesheet" href="css/sticky-navigation.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<!-- <script src="js/jquery-1.9.1.js"></script> -->
+
+<script>
+var replacePage  ;
+$(function(){
+	alert('haha'  ) ;
+		 replacePage = function(url) {
+		alert('replace' +url ) ;
+		// $(#container).load(url); 
+		$.ajax({
+			url: url,
+			type: 'get',
+			dataType: 'html',
+			success: function(data){
+				var dom = $(data);
+				var title = dom.filter('title').text();
+				var html = dom.filter('#container').html();
+				$('title').text(title);
+				$('#container').html(html);
+			}
+		});
+	} ;
+
+	// $('a').live('click', function(e){
+	// 	history.pushState(null, null, this.href);
+	// 	replacePage(this.href);
+	// 	e.preventDefault();
+	// });
+
+	$(window).bind('popstate', function(){
+		alert('popstate') ;
+		replacePage(location.pathname);
+	});
+
+
+
+});
+</script>
+<script>
+$(function() {
+	  //charlene load page
+	  $("#container").load("imageonly.html"); 
+
+	// grab the initial top offset of the navigation 
+	var sticky_navigation_offset_top = $('#sticky_navigation').offset().top;
+	
+	// our function that decides weather the navigation bar should have "fixed" css position or not.
+	var sticky_navigation = function(){
+		var scroll_top = $(window).scrollTop(); // our current vertical position from the top
+		
+		// if we've scrolled more than the navigation, change its position to fixed to stick to top, otherwise change it back to relative
+		if (scroll_top > sticky_navigation_offset_top) { 
+			$('#sticky_navigation').css({ 'position': 'fixed', 'top':0, 'left':0 });
+		} else {
+			$('#sticky_navigation').css({ 'position': 'relative' }); 
+		}   
+	};
+	
+	// run our function on load
+	sticky_navigation();
+	
+	// and run it again every time you scroll
+	$(window).scroll(function() {
+		 sticky_navigation();
+	});
+	
+	// NOT required:
+	// for this demo disable all links that point to "#"
+	$('a[href="#"]').click(function(event){ 
+		event.preventDefault(); 
+	});
+	
+});
+
+
+
+// 3rd method  - loading on click
+$(document).ready(function() {
+    $( 'li>a[id$="Container"]' ).click(function(event) 
+    // $( 'li>a[id$="Container"]' ).click(function(event) 
+    {
+    	event.preventDefault();
+    	 doReloadContainer($(this));
+
+    });
+});
+
+function doReloadContainer(which) {
+	 alert("Loading 1.1st..." + which) ;
+
+        var href = $(which).attr('href');
+        	history.pushState(null, null, this.href);
+        $('#container').load(href);
+
+        return true;
+
+};
+
+// 3rd method  - loading on click
+// $(document).ready(function()
+// {
+ 
+// });
+
+
+
+
+</script>
+
+</head>
+<body>
+
+<div id="demo_top_wrapper">
+
+	<div id="demo_top">
+			<div id="my_logo"></div>
+	</div>
+
+	<div id="sticky_navigation_wrapper">
+		<div id="sticky_navigation">
+			<!-- <div class="demo_container"> -->
+				<ul>
+					<li><a  id="imgContainer" href="imageonly.html" >首頁</a></li>
+					<li><a  id="peopleContainer" href="people.html">人
+					</a></li>
+					<li><a  id="fishContainer" href="fish.html">魚</a></li>
+
+					<li><a id="sunContainer" href="sun.html">日、月</a></li>
+					<li><a id="canoeContainer" href="canoe.html">大船</a></li>
+					<li><a id="techContainer" href="resource.html">外部資源聯結</a></li>
+
+				</ul>
+			<!-- </div> -->
+		</div>
+	</div>
+
+
+
+	
+</div><!-- #demo_top_wrapper -->
+
+<section id="container">
+
+	
+	
+
+
+</section><!-- #container -->
+	
+
+<footer>
+	<p>Copyright © 2014 Hahaha • Created by <a href="http://www.aaaa.bbb">My Company</a></p>
+</footer>
+
+</body>
+</html>
