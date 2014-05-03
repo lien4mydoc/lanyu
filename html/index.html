@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title> lanyu - pinban ship home page</title>
+ 
+<link href="css/demo.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="js/jquery.sudoSlider.min.js"></script>
+<script type="text/javascript" src="js/detectbrowser.js"></script>
+<!-- required for  sticky-navigation demo -->
+<link rel="stylesheet" href="css/sticky-navigation.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<!-- <script src="js/jquery-1.9.1.js"></script> -->
+
+<script type="text/javascript">
+      //获取指定key的hash值
+ 	var prevHash = window.location.hash;
+     function getHash(key, url) {
+          var hash;
+          if (!!url) {
+              hash = url.replace(/^.*?[#](.+?)(?:\?.+)?$/, "$1");
+     		 
+              hash = (hash == url) ? "" : hash;
+          } else {
+              hash = self.location.hash;
+          }
+
+          hash = "" + hash;
+          hash = hash.replace(/^[?#]/, '');
+           // alert('url.hash.2=' + hash);
+
+           return hash ;
+
+      }
+         function loadPanel() {
+        var page = getHash("page");
+        var cont = page.split('_') [0] ;
+        var htm = page.split('_') [1] ;
+         	// alert('1 loadpanel page='+page+ "/cont="+cont +"/htm="+htm);
+        if (!(cont && htm))  {
+        	cont='container' ;
+        	htm = 'imageonly' ;
+        	// return ; 
+        }
+         	alert('2 loadpanel page='+page+ "/cont="+cont +"/htm="+htm);
+
+         	var contElem= $( '#' + cont) ;
+         	htm=  htm +'.html' ;
+         	// console.log(contElem) ;
+            $( '#' + cont).load(htm);
+        
+    }
+
+    // $(window).bind("hashchange", loadPanel);
+       if (("onhashchange" in window) && !(_browser.msie)) {
+		$(window).bind("hashchange", loadPanel);
+	 }
+	else {
+		alert("hashchange= false ");
+	        window.setInterval(function () {
+	           if (window.location.hash != prevHash) {
+	              prevHash = window.location.hash;
+	              // alert(window.location.hash);
+	           }
+	        }, 100);
+	  }
+
+</script>
+<script>
+$(function() {
+	  //charlene load page
+	  // location.hash = window.location.hash || '#container_imageonly';
+	  $("#container").load("imageonly.html"); 
+
+	// grab the initial top offset of the navigation 
+	var sticky_navigation_offset_top = $('#sticky_navigation').offset().top;
+	
+	// our function that decides weather the navigation bar should have "fixed" css position or not.
+	var sticky_navigation = function(){
+		var scroll_top = $(window).scrollTop(); // our current vertical position from the top
+		
+		// if we've scrolled more than the navigation, change its position to fixed to stick to top, otherwise change it back to relative
+		if (scroll_top > sticky_navigation_offset_top) { 
+			$('#sticky_navigation').css({ 'position': 'fixed', 'top':0, 'left':0 });
+		} else {
+			$('#sticky_navigation').css({ 'position': 'relative' }); 
+		}   
+	};
+	
+	// run our function on load
+	sticky_navigation();
+	
+	// and run it again every time you scroll
+	$(window).scroll(function() {
+		 sticky_navigation();
+	});
+	
+
+});
+
+
+
+</script>
+
+</head>
+<body>
+
+<div id="demo_top_wrapper">
+
+	<div id="demo_top">
+			<div id="my_logo"></div>
+	</div>
+
+	<div id="sticky_navigation_wrapper">
+		<div id="sticky_navigation">
+			<!-- <div class="demo_container"> -->
+				<ul>
+					<li><a  href="index.html" >首頁</a></li>
+					<li><a  href="#container_people">人</a></li>
+					<li><a  href="#container_fish">魚</a></li>
+					<li><a href="#container_sun">日、月</a></li>
+					<li><a  href="#container_canoe">大船</a></li>
+					<li><a  href="#container_resource">外部資源聯結</a></li>
+
+				</ul>
+			<!-- </div> -->
+		</div>
+	</div>
+
+
+
+	
+</div><!-- #demo_top_wrapper -->
+
+<section id="container">
+
+	
+	
+
+
+</section><!-- #container -->
+
+<footer>
+	<p>Copyright © 2014 Hahaha • Created by <a href="http://www.aaaa.bbb">My Company</a></p>
+</footer>
+
+</body>
+</html>
